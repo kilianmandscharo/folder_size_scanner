@@ -41,19 +41,6 @@ if __name__ == "__main__" :
         print(cwd)
         file_scanner.file_scan(cwd)
     else :
-        #folder_name = sys.argv[1]
-        #new_path = os.path.join(cwd, folder_name)
-        #if os.path.exists(new_path) :
-            #print("Specified directory:", folder_name)
-            #print("is a directory and will be used as root directory\n")
-            #file_scanner.file_scan(new_path)
-            #print()
-        #else :
-            #print("Specified directory:", folder_name)
-            #print("is not a directory -- defaulting to CWD:")
-            #print(cwd, "\n")
-            #file_scanner.file_scan(cwd)
-            #print()
         path = sys.argv[1]
         if os.path.exists(path) :
             print("Specified path:", path)
