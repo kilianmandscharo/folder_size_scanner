@@ -11,6 +11,7 @@ class FolderSizeScanner :
     def get_size(self, path) :
         file_size = 0
         folder_size = 0
+
         with os.scandir(path=path) as it :
             for entry in it :
                 new_path = os.path.join(path, entry.name)
@@ -27,7 +28,7 @@ class FolderSizeScanner :
         for folder in [f for f in self.folders][::-1] :
             file_size = self.folders[folder][1]
             total_size = self.folders[folder][0] + file_size
-            print(f"{total_size:10.0f} Bytes in {folder:15}, thereof {file_size:10.0f} directly in the directory")
+            print(f"|--{total_size:10.0f} Bytes in {folder:15}, thereof {file_size:10.0f} directly in the directory")
 
 
 if __name__ == "__main__" :
@@ -47,5 +48,6 @@ if __name__ == "__main__" :
             file_scanner.file_scan(path)
         else :
             print("Path does not exist")
-            print("Defaulting to CWD")
+            print("Defaulting to CWD:")
+            print(cwd)
             file_scanner.file_scan(cwd)
